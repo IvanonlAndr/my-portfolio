@@ -36,14 +36,15 @@ If no token is present (e.g. a logged-out user hitting a public query), the midd
 ---
 
 ```ts
-// authLink.ts
 import { ApolloLink, NextLink, Operation } from '@apollo/client';
-
-const TOKEN_STORAGE_KEY = 'accessToken';
-
+import { StorageKeys } from './storageKeys';
+ 
+// Reads the current token from storage and attaches it as a bearer token
+// on every outgoing GraphQL request, before the request continues down
+// the link chain to the actual HTTP transport.
 const authLink = new ApolloLink((operation: Operation, forward: NextLink) => {
-  const token = localStorage.getItem(TOKEN_STORAGE_KEY);
-
+  const token = localStorage.getItem(StorageKeys.Token);
+ 
   if (token) {
     operation.setContext({
       headers: {
@@ -51,9 +52,11 @@ const authLink = new ApolloLink((operation: Operation, forward: NextLink) => {
       }
     });
   }
-
+ 
   return forward(operation);
 });
+ 
+export default authLink;
 
 export default authLink;
 ```

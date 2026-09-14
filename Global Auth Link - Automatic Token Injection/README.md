@@ -58,5 +58,4 @@ const authLink = new ApolloLink((operation: Operation, forward: NextLink) => {
  
 export default authLink;
 
-export default authLink;
 ```

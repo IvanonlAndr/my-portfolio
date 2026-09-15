@@ -1,4 +1,4 @@
-# Guest Site Authentication & Account Lifecycle Engine
+# Sign-Up Flow - Guest Authentication & Recovery
 
 ## Project Overview
 This repository showcases the high-level system design and architectural patterns implemented for the guest onboarding and user lifecycle platform at **SoCoders**. The architecture establishes a highly maintainable, secure, and performant frontend system managing critical guest spaces, including **User Creation (Sign-Up)**, **Authorization (Login)**, and self-service **Account Recovery (Password Restoration)**.
